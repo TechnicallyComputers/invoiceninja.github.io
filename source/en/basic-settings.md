@@ -51,11 +51,17 @@ The image you select should be 300x300 for best results, and there are no restri
 
 ### Defaults
 
-The defaults are system wide - company level defaults, this will applied at every level of the application they refer to.
+This section defines the default terms, and default comments/notes applied to any newly generated entities under the company.
 
-* **Invoice Payment Terms** - The payment term defined in 'days'. You can configure custom payment terms by clicking the **Configure Payment Terms** button
+* **Invoice Payment Terms** - The payment term defined in 'days'.  Select from a drop down list of options for days before a Net invoice balance is due.  
+
+> "Net" means that the full amount is due for payment.  When the terms read "net 30" it means to say that the full payment is due in 30 days.  Setting a net term will automatically populate the due date of newly generated invoices/quotes according to the net terms chosen.
 
 * **Quote Valid Until** - Similar to Invoice Payment Terms, you will select a length of time in days, from the list of payment terms time lengths.
+
+* **Configure Payment Terms** - Here you can create and define custom terms for the net payment due date.  After defining a custom "Net" term, you will be able to select it from the dropdown of any "payment terms" or "quote valid until" field.
+
+  * **Use Quote Terms** - When converting a quote to an invoice, if enabled, the newly converted invoice will use the same Net terms as the quote is valid until.  When disabled (default) it will instead use the default invoice payment terms.
 
 * **Terms and Footers** - The terms and footers text inputs allow you to define default for each. These will be injected into the document automagically for you. All you need to do is set it once here and we'll take care of the rest!  Note, you can always override these values by editing them directly in the entity. 
 
@@ -73,8 +79,8 @@ The User Details section covers account settings for the currently logged in use
 
 ### Details
 
-* **First Name**
-* **Last Name**
+* **First Name** - The user's first name.
+* **Last Name** - The user's last name.
 * **Email** - Used to send password reset links to when requested.
 * **Phone** - For your reference only.
 * **Password** - You would use this field to change your user account password, it doesn't reveal your existing account password.
@@ -122,24 +128,10 @@ Edit, or create a new invoice, credit, etc, in order to see the changes to the t
 
 You may configure payment gateways, and payment rules/behaviors from here.
 
-* **Auto bill**
-  * *Enabled* - A payment will be automatically attempted if a valid payment method is stored on file.
-  * *Enabled by default* - The client will be given the option to allow payment methods to be stored with the radio box selected.
-  * *Disabled by default* - The client will be given the option to allow payment methods to be stored with the radio box unselected.
-  * *Disabled* - No option is given, and auto billing is disabled.
-* **Auto Bill On** - In an event where auto billing is enabled, you can configure the automatic payment to be triggered when an invoice is sent, or on the due date of that invoice.
-* **Payment Type** - This selector will set the default payment method.
-* **Use Available Credits** - Configure behavior for when a client has available credits in their account as they go to make a payment
-  * *Off* - Will not use available credits in the client's account.
-  * *Enabled* - Will use any available credits by default.
-  * *Show Option* - Will prompt the user making the payment that there are credits available, if they choose to apply them.
-
-* **Allow Over Payment** - Toggle on/off client ability to optionally pay extra as a tip.
-* **Allow Under Payment** - Toggle the ability for clients to pay a minimum or partial amount owing.
-
-* **Payment Emails**
-  * *Manual Payment Email* - Sends a payment notification to the client when a manual payment is applied
-  * *Online Payment Email* - Sends a payment notification to the client when an online payment has been processed.
+* **Auto Bill Standard Invoices** - When enabled, automatically prompt customers by email for standard invoices using the below configured default payment settings, and mark the invoices "Past Due" if they are not paid in full by the time the due date has passed.
+* **Auto Bill Recurring Invoices** - Auto billing using payment settings configured below, for recurring invoices, has more flexible options than with standard invoices.  You can force it "Enabled" or "Off" for all recurring invoices with no exceptions.  You can also set it to "Enabled" or "Off" *by default*, respectively.  The difference is between allowing users to disable/enable the auto-billing of recurring invoices on a case by case basis.  
+* **Auto Bill On** - Selecting an option here between the "Due Date" and the "Send Date" defines whether to automatically charge clients for an invoice when it is marked as *Sent* or when the net term has been reached.
+* **Default Payment Type** - Payment type can be changed on a case by case basis, and the default can be left blank, but selecting a payment type here will automatically populate the "Payment Type" field of a payment entity when it is generated.
 
 ### Configure Payment Gateways
 
@@ -229,12 +221,18 @@ You can accidentally double charge taxes if you apply tax rates on the flat bala
 
 <h2 id=product_settings>Product Settings</h2>
 
-These options govern the behaviors and rules related to *Products* either when editing the products directly, or interacting with them on invoices, quotes, etc.
+These options govern the behaviors and rules related to *Products* either when editing the products directly, or interacting with them on various entities.
+
+* **Track Inventory** - An optional feature, to enable tracking your inventory under the company.  When enabled, you will see new fields in the "Overview" and "Edit Product" panes of your product entities, to accommodate tracking inventory, and even email notifications for when your inventory is reduced to a specific level for that product.
+* **Stock Notifications** - A feature that takes effect when *Track Inventory* is enabled.  When in effect, the application will send emails when a product's inventory count falls down to the threshold amount.  Stock notification emails are sent to any and all users that have *Inventory Threshold* enabled under the "Notifications" tab of the "User Details" section.  Admins and privileged users can configure these notifications for other users by navigating to the specific user under *User Management*.
+  * **Notification Threshold** - When *Stock Notifications* is in effect, you will see this field available and be able to set a default threshold for product stock to trigger notifications to be sent.  <br><br>
 
 * **Show Product Discount** - Optionally enable a discount field for products/items when added to invoices or quotes.  This line item appears on invoice and quote documents sent to clients.
 * **Show Product Cost** - Enables a *Product Cost* field in each product listing, for tracking item costs, and markup values.  This item does *not* appear on any customer invoices, it is only for the admin portal.
 * **Show Product Quantity** - Display a quantity field on invoices or not.  Defaults to one, if the product quantity field is disabled.
-* **Default Quantity** - When the product quantity field is enabled, enabling this will make the quantity default to 1, otherwise you must explicitly specify the quantity of each product.
+* **Default Quantity** - When the product quantity field is enabled, enabling this will make the quantity default to 1, otherwise you must explicitly specify the quantity of each product.  <br><br>
+
+* **Show Product Description** - When editing an invoice other entity, you will select a product to add to the entity from a drop down list when you click on a blank line under the "Item" column.  Enabling this feature will also show the product descriptions underneath the product names when viewing this dropdown list.
 
 * **Fill Products** - Enable, to automatically fill the description and cost fields with the values of the product you select, when adding a product to an invoice.
 * **Update Products** - Changing the product description, or tax rate on an invoice, will automatically update that products entry in the product list.
