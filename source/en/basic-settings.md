@@ -240,20 +240,30 @@ These options govern the behaviors and rules related to *Products* either when e
 
 <h2 id=task_settings>Task Settings</h2>
 
-Settings here govern the rules and behaviors related to tasks, which are nested in projects.
+Settings here govern the rules and behaviors related to tasks entities.  Tasks are typically attached to projects, so you can manage and invoice multiple work tasks to your clients on behalf of you and your team.
 
-* **Default Tax Rate** - Custom field to set a flat default task rate per hour.
-* **Auto Start Tasks** - Enable to automatically start a task's time tracking when a task is created.
-* **Show Task End Date** - Enables an "*End Date*" field when creating and editing tasks.
+* **Auto Start Tasks** - Toggle on in order to start time tracking when a task is created.  What this does exactly, is puts in the current date/time into the Start Date and Start Time fields for the task when it is created.
+* **Show Task End Date** - Enables an "*End Date*" field when creating and editing tasks.  When enabled, it allows accounting for tasks that run overnight, or over multiple days.
+* **Show Task Item Description** - A task entity itself already has a general Description field, but enabling this will create a unique customizable Description field underneath each line item on the Task entity.
+* **Show Task Billable** - Enabling this produces a check box to toggle whether a particular line item on a task entity is billable or not, allowing for the documentation of tasks that are not billable.
 
-These rules strictly govern 
+***Configure Statuses*** - This button enters another settings panel for "*Task Statuses*" which manages a list of selectable statuses for tasks, for example:  Backlog, Ready to do, In Progress, and Done.  All there is to configure for a task status, is the name of the status, and an indicator color.
+
+* **Invoice Task Datelog** - Include the dates of entries from the task log in the line item description when generating the task invoice.
+* **Invoice Task Timelog** - Include the timestamps of a given task in the line item description when generating the task invoice.
+* **Invoice Task Hours** - Include the duration of the task in the line item description for the task when generating the task invoice.
+
+* **Invoice Task Project** - Include the project name that the task belongs to in the line item description for the task when generating the task invoice.
+
+
 
 * **Show Tasks Table** - When enabled, will always present a "*Tasks*" category when adding items to invoices, where you can select tasks assigned to a client, and add them to the invoice.  
-* **Invoice Task Datelog** - Include the dates of entries in the task log when adding the task to an invoice.
-* **Invoice Task Timelog** - Include the timestamps of a given task when adding it to an invoice.
+* **Lock Invoiced Tasks** - Tasks that have already been invoiced cannot be edited.  Disabled by default.
 * **Add Documents to Invoice** - Enable to make documents attached to your tasks, visible to clients as well as admin portal users.
 
-**Configure Statuses** - This button enters another settings panel for "*Task Statuses*" which manages a list of selectable statuses for tasks, for example:  Backlog, Ready to do, In Progress, and Done.  All there is to configure for a task status, is the name of the status, and an indicator color.
+
+
+* **Client Portal** - Enables clients viewing task entities assigned to them when they are logged in to the client portal frontend.  Select from the drop down field to select which tasks can be visible to them, either Invoiced, Uninvoiced, or All task entities.
 
 <h2 id=expense_settings>Expense Settings</h2>
 
@@ -311,11 +321,10 @@ These settings govern the settings for the session or instance on the physical d
 
 * **History Sidebar** - The history sidebar will spawn somewhere on the righthand-side.  When set to "*Show/Hide*" the history sidebar spawns on the far right, and is a persistent sidebar that resizes and moves the panels around it.  When set to "*Float*" the history sidebar spawns in front of the panel you're working in when you press the "*History*" button at the top of a menu list, and it dismisses itself automatically.
 
-* **Preview Sidebar** - Enabled is the default setting, which presents you with a list of clients, invoices, tasks, etc. and the entire entry in the list is a clickable button to view the entry's advanced details in a persistent sidebar on the righthand-side. 
-
-  When disabled, you are instead presented with no sidebar on the right, only a list, and each entry shows a little more detail at a glance, but it doesn't offer advanced details views, and disabling this feature can effectively reduce features normally available to you through these detailed preview sidebars.
+* **Click Selected** - Changes the behavior when you click on an entity that you have already selected.  "*Hide Preview*" will hide the preview sidebar for that entity.  "*Edit Record*" will cause the entity to open the entity itself directly for editing.
 
 * **List Long Press** - Configure behavior when you long press a menu list entry.  "*Start Multiselect*" to use the long press to switch to an item selector mode and select multiple items to act upon, or choose "*Show Actions*" to simply spawn a context menu of available actions for that one menu list entry instead.
+
 * **Rows Per Page** - Configure the default number of rows to load per menu page.
 
 * **Dark Mode** - Toggles a dark theme for low light conditions, or personal preference.
