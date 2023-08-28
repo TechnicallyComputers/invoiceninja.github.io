@@ -316,20 +316,15 @@ Note on the hosted platform, the company importer will perform a preflight check
 These settings govern the settings for the session or instance on the physical device you are currently signed into.  On a new device, these settings will not apply.
 
 * **Layout** - Explicitly choose from a desktop, or mobile layout.  Normally Invoice Ninja can detect which type of display you are using though.
-
 * **Menu Sidebar** - The menu sidebar is the left-most sidebar for navigation.  When set to "*Collapse*" the sidebar stays pinned, and can expand or shrink.  When set to "*Float*" the sidebar stays hidden, and slides out from a gesture or by clicking the "*hamburger*" button in the top left corner.
-
 * **History Sidebar** - The history sidebar will spawn somewhere on the righthand-side.  When set to "*Show/Hide*" the history sidebar spawns on the far right, and is a persistent sidebar that resizes and moves the panels around it.  When set to "*Float*" the history sidebar spawns in front of the panel you're working in when you press the "*History*" button at the top of a menu list, and it dismisses itself automatically.
-
 * **Click Selected** - Changes the behavior when you click on an entity that you have already selected.  "*Hide Preview*" will hide the preview sidebar for that entity.  "*Edit Record*" will cause the entity to open the entity itself directly for editing.
-
-* **List Long Press** - Configure behavior when you long press a menu list entry.  "*Start Multiselect*" to use the long press to switch to an item selector mode and select multiple items to act upon, or choose "*Show Actions*" to simply spawn a context menu of available actions for that one menu list entry instead.
-
-* **Rows Per Page** - Configure the default number of rows to load per menu page.
-
-* **Dark Mode** - Toggles a dark theme for low light conditions, or personal preference.
-
-* **Color Theme** - Select color themes to use for the tags assigned to invoices, payments, tasks, etc (Such as "*In Progress*" "*Sent*" or "*Running*").  Accent colors for the UI are chosen from the User Details section.
+* **After Saving** - Changes the behavior when you save changes to an entity.  "*View Record*" will return you to viewing the entity from the standard preview pane for that record.  "*Edit Record*" will save changes, but the entity will stay open for further editing.
+* **Show PDF Preview** - On by default, you can enable/disable to choose whether to display an automatically updating preview PDF at the bottom of the page when editing an invoice entity.
+* **Use Browser PDF Viewer** - Use your web browser's own built in PDF viewer instead of the PDF viewer baked into the InvoiceNinja software.  This may affect interactions with the app when over the PDF - example like when hovering the mouse over the PDF invoice, and attempting to scroll the mouse wheel up and down.
+* **Preview Location** - Change whether to display PDF previews at the bottom, or on the right hand side, when editing an appropriate entity.
+* **Font Size** - Change the font size of the entire UI on this device, such as for readability purposes of the user(s) of that device.
+* **Enable Flexible Search** - Allow non-contiguous characters to generate matches when running a search, 
 
 <h2 id=account_management>Account Management</h2>
 
@@ -342,10 +337,12 @@ From this tab you have a few different things presented to you.
 First are things related to your company's status, or terms with Invoice Ninja
 
 * **Plan** - Status of your current plan with Invoice Ninja hosting services.
+
 * **Activate Company** - Enable or disable company active state, disabling it will disable a number of automated features, like emails, recurring invoices, and notifications.
-* **Enable Markdown** - Enable your template designs to embed markdown into your HTML code, for formatting PDFs with markdown.  At this time, the markdown code can only be converted from within product line item descriptions, but there are plans to implement wider support.
-* **Decimal Comma** - When creating or editing documents (invoices, quotes, etc) in the admin portal, enabling this will change the use of decimals, to commas in order to separate dollars from cents.  It operates with one or the other but not both at once.  For example, 20.00 will instead be represented as 20,00.  A decimal will be ignored with commas enabled, and vice versa.
-* **Include Drafts** - When generating reports from the "Reports" module, enabling this feature will include objects that are still marked as drafts in the figures of your reports.
+* **Enable PDF Markdown** - Enable your template designs to embed markdown into your HTML code, for formatting PDFs with markdown.  At this time, the markdown code can only be converted from within product line item descriptions, but there are plans to implement wider support.
+* **Enable Email Markdown** - Use markdown formatting when editing emails.  "WYSIWYG" markdown editor shows you exactly how your emails will look by previewing what the markdown will appear.
+* **Include Drafts** - When generating reports from the "Reports" module, enabling this feature will include entities that are still marked as drafts in the figures of your reports.
+* **Include Deleted** - Toggle on to also include deleted entities/records in your reports, just as the *Include Drafts* feature does with drafts.
 * **Purchase License** - A link to request an invoice from Invoice Ninja for a white label license.  License will be emailed to you.
 * **Apply License** - Enter the license key provided by Invoice Ninja to remove white label from documents and client-facing parts of the app.
 
